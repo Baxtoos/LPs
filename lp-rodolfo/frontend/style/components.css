@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Botões */
+  .btn-primario {
+    @apply inline-block bg-brand-green text-white font-extrabold text-xl py-4 px-10 rounded shadow-[0_4px_15px_rgba(0,208,58,0.4)] hover:bg-green-500 hover:scale-105 transition-all duration-300 uppercase;
+  }
+  .btn-secundario {
+    @apply inline-block bg-white text-brand-teal font-extrabold text-xl py-4 px-10 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300;
+  }
+
+  /* Cards da Situação */
+  .card-situacao {
+    @apply w-full md:w-[30%] border-2 border-brand-teal rounded-lg p-5 relative bg-white shadow-sm hover:shadow-md transition;
+  }
+  .card-situacao-largo {
+    @apply w-full md:w-[45%] border-2 border-brand-teal rounded-lg p-5 relative bg-white shadow-sm hover:shadow-md transition mt-2;
+  }
+  .badge-numero {
+    @apply absolute -top-3 -right-3 bg-brand-teal text-white w-7 h-7 rounded flex items-center justify-center font-bold text-sm;
+  }
+
+  /* Itens de Lista dos Módulos */
+  .modulo-item {
+    @apply flex items-start text-sm font-medium;
+  }
+  .modulo-icone {
+    @apply w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0;
+  }
+
+  /* Badges Flutuantes Hero */
+  .badge-flutuante {
+    @apply absolute bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded border border-white/30 text-sm font-semibold z-20 shadow-lg;
+  }
+}
+
+/* Divisores de Onda (CSS Tradicional) */
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(99%);
+  z-index: 10;
+}
+.wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 70px;
+}
+
+.wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(-99%) rotate(180deg);
+  z-index: 10;
+}
+.wave-top svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 70px;
+}
