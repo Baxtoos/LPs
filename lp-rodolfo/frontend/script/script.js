@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    const internalLinks = document.querySelectorAll('a[href^="#"]');    
 
     internalLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            // Pega o destino do link
+            // Previne falha de query se href for apenas "#"
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            if (!targetId || targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);     
             
-            // scroll suave 
+            // Força a rolagem via window
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                e.preventDefault();
+                const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY;
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
                 });
             }
         });
